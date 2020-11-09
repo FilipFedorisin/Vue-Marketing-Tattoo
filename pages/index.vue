@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="title">poorich-tattoo</h1>
+    <div id="Index">
+      <p id="Easter-Egg">rýchlosť svetla</p>
+    </div>
   </div>
 </template>
 
@@ -8,23 +10,25 @@
 export default {}
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
+  background-color: rgb(54, 54, 54);
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  #Index {
+    padding-top: 28px;
+    background-color: whitesmoke;
+    height: 200vh;
+    min-width: 1000px;
+    max-width: 1000px;
+    text-align: center;
+
+    #Easter-Egg {
+      color: $colors-Burnt-Sienna;
+    }
+  }
 }
 </style>
