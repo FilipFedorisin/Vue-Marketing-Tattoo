@@ -3,8 +3,8 @@
     <div class="container">
       <div class="social-media">
         <span>Sociálne Média</span>
-        <img id="facebook" src="../assets/images/logo.png" alt="facebook" />
-        <img id="instagram" src="../assets/images/logo.png" alt="instagram" />
+        <img id="facebook" src="../assets/images/facebook.png" alt="facebook" />
+        <img id="instagram" src="../assets/images/instagram.png" alt="instagram" />
       </div>
       <div class="help-and-support">
         <span>Zákaznická podpora</span>
@@ -42,7 +42,6 @@ export default {}
 <style lang="scss" scoped>
 footer {
   z-index: 10;
-  font-family: 'Regular', sans-serif;
   position: sticky;
   top: calc(100vh - 250px);
   color: white;
@@ -68,6 +67,16 @@ footer {
         margin-right: 15px;
         width: 32px;
         height: 32px;
+        cursor: pointer;
+      }
+      img:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        animation-name: animations-Pop-Up;
+        animation-duration: 0.5s;
+        animation-delay: -0.1s;
+        transform: scale(1.1);
+        border-radius: 12px;
       }
     }
 
@@ -92,11 +101,13 @@ footer {
     span {
       color: $colors-Burnt-Sienna;
       display: block;
-      padding: 5px;
+      padding: 4px;
       cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
     }
     span:hover {
       color: $colors-Burnt-Sienna;
+
       background-color: rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
       animation-name: animations-Pop-Up;

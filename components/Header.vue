@@ -96,12 +96,9 @@ export default {
 
       img {
         cursor: pointer;
-        height: 50px;
-        width: 200px;
-      }
-      img:hover {
-        transition: all 0.3s ease;
-        transform: scale(1.02);
+        padding-top: 10px;
+        height: 70px;
+        width: 130px;
       }
     }
     #Navigation {
@@ -115,6 +112,8 @@ export default {
       transition: 0.3s all ease-out;
 
       span {
+        font-family: 'Montserrat', sans-serif;
+
         line-height: 38px;
         cursor: pointer;
         text-align: center;
@@ -122,7 +121,7 @@ export default {
       }
       span:hover {
         color: $colors-Burnt-Sienna;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
         animation-name: animations-Pop-Up;
         animation-duration: 0.5s;
