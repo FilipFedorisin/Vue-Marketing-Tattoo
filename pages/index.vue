@@ -30,5 +30,19 @@ export default {}
       color: $colors-Burnt-Sienna;
     }
   }
+  @media screen and (max-width: 1000px) {
+    #Index {
+      min-width: 100%;
+      /*
+      display: grid;
+      justify-content: center;
+      justify-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
+      grid-auto-rows: max-content;
+      row-gap: 15px;
+      height: auto;
+      */
+    }
+  }
 }
 </style>

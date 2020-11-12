@@ -4,46 +4,45 @@
       <div id="Logo">
         <img src="../assets/images/logo.png" alt="logo" />
       </div>
-      <div id="Navigation">
+      <div v-show="!hamburger" id="Navigation">
         <span>Domov</span>
         <span>Služby</span>
         <span>Galéria</span>
         <span>Kontakt</span>
       </div>
-      <div id="toTop" :class="{ 'toTop--hidden': showToTop }">
-        <img src="../assets/images/back-to-top.png" alt="back-to-top" @click="backToTop" />
-      </div>
+      <Hamburger v-show="hamburger" />
     </div>
   </div>
 </template>
 
 <script>
+import Hamburger from '../components/Hamburger.vue'
+
 export default {
+  components: {
+    Hamburger,
+  },
   data() {
     return {
       showContainer: true,
-      showToTop: true,
       lastScrollPosition: 0,
+      hamburger: false,
     }
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('resize', this.showHam)
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('resize', this.showHam)
   },
   methods: {
     onScroll() {
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
         this.showContainer = true
-        this.showToTop = false
-        document.getElementById('toTop').style.transition = '0.01s all ease-out;'
-        document.getElementById('toTop').style.bottom = 'calc((100vh - 100px) * -1)'
-        document.getElementById('toTop').style.transition = '0.3s all ease-out;'
       } else {
-        document.getElementById('toTop').style.bottom = 'calc((100vh - 50px) * -1)'
         if (currentScrollPosition < 0) {
           return
         }
@@ -51,13 +50,15 @@ export default {
           return
         }
         this.showContainer = currentScrollPosition < this.lastScrollPosition
-        this.showToTop = currentScrollPosition < this.lastScrollPosition
         this.lastScrollPosition = currentScrollPosition
       }
     },
-    backToTop() {
-      document.body.scrollTop = 0
-      document.documentElement.scrollTop = 0
+    showHam() {
+      if (window.innerWidth < 800) {
+        this.hamburger = true
+      } else {
+        this.hamburger = false
+      }
     },
   },
 }
@@ -134,41 +135,19 @@ export default {
         box-shadow: 0 0 4px $colors-Burnt-Sienna;
       }
     }
-    #toTop {
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      position: fixed;
-      bottom: calc((100vh - 50px) * -1);
-      right: 50px;
-      transform: translate3d(0, 0, 0);
-      transition: 0.3s all ease-out;
-
-      img {
-        width: 50px;
-        height: 50px;
-      }
-    }
-    #toTop:hover {
-      transform: translate3d(0, -18%, 0);
-    }
-    #toTop.toTop--hidden {
-      box-shadow: none;
-      transform: translate3d(0, 100%, 0);
-    }
   }
   @media screen and (max-width: 1000px) {
     #Navbar {
-      max-width: 1000px;
       min-width: 100%;
+      /*
       display: grid;
       justify-content: center;
       justify-items: start;
       grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
-
       grid-auto-rows: max-content;
       row-gap: 15px;
       height: auto;
+      */
     }
   }
 }

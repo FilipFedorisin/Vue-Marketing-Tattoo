@@ -106,9 +106,9 @@ footer {
       font-family: 'Montserrat', sans-serif;
     }
     span:hover {
-      color: $colors-Burnt-Sienna;
+      color: $colors-Poorich-Green;
 
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: #3a2222;
       transition: all 0.3s ease;
       animation-name: animations-Pop-Up;
       animation-duration: 0.5s;
@@ -141,6 +141,7 @@ footer {
     }
     height: auto;
     padding-bottom: 50px;
+    padding-top: 50px;
   }
 }
 

@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <ToTop />
     <Nuxt id="NUXT" />
     <Footer />
   </div>
@@ -9,10 +10,13 @@
 <script>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import ToTop from '../components/ToTop.vue'
+
 export default {
   components: {
     Header,
     Footer,
+    ToTop,
   },
 }
 </script>
