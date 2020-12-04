@@ -21,21 +21,14 @@ export default {
   methods: {
     onScroll() {
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight + 50) {
-        this.showToTop = false
-        document.getElementById('toTop').style.transition = '0.01s all ease-out;'
-        document.getElementById('toTop').style.transition = '0.3s all ease-out;'
-      } else {
-        if (currentScrollPosition < 0) {
-          return
-        }
-        if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 50) {
-          return
-        }
-        this.showToTop = currentScrollPosition < this.lastScrollPosition
-        this.lastScrollPosition = currentScrollPosition
+      if (currentScrollPosition < 0) {
+        return
       }
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 50) {
+        return
+      }
+      this.showToTop = currentScrollPosition < this.lastScrollPosition
+      this.lastScrollPosition = currentScrollPosition
     },
     backToTop() {
       document.body.scrollTop = 0
@@ -46,6 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
+//? Styling
 #toTop {
   color: chocolate;
   z-index: 5000;
@@ -68,36 +62,25 @@ export default {
   animation-delay: -0.08s;
   transition: 0.3s all ease-out;
 
-  transform: translate3d(0, -24%, 0);
+  transform: translate3d(0, -10%, 0);
 }
 #toTop.toTop--hidden {
   box-shadow: none;
   transform: translate3d(0, 100%, 0);
   bottom: -50px;
 }
-@keyframes animations-Jump-Up {
-  0% {
-    transition: 0.4s all ease-out;
-    transform: translate3d(0, -18%, 0);
-  }
-  25% {
-    transition: 0.3s all ease-out;
-    transform: translate3d(0, 16%, 0);
-  }
-  50% {
-    transition: 0.3s all ease-out;
-    transform: translate3d(0, -18%, 0);
-  }
-  75% {
-    transform: translate3d(0, 22%, 0);
-  }
-  100% {
-    transform: translate3d(0, -24%, 0);
-  }
-}
+
+//? Queries
 @media screen and (max-width: 800px) {
   #toTop {
     z-index: 0;
+  }
+}
+
+//? Animations
+@keyframes animations-Jump-Up {
+  100% {
+    transform: translate3d(0, -10%, 0);
   }
 }
 </style>

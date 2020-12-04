@@ -40,6 +40,7 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+//? Styling
 footer {
   z-index: 10;
   position: sticky;
@@ -54,7 +55,6 @@ footer {
   .container {
     max-width: 1000px;
     min-width: 1000px;
-
     display: grid;
     grid-template-columns: repeat(4, minmax(max-content, max-content));
     grid-auto-rows: max-content;
@@ -79,7 +79,6 @@ footer {
         border-radius: 12px;
       }
     }
-
     ul {
       list-style-type: none;
       margin: 0;
@@ -107,7 +106,6 @@ footer {
     }
     span:hover {
       color: $colors-Poorich-Green;
-
       background-color: #3a2222;
       transition: all 0.3s ease;
       animation-name: animations-Pop-Up;
@@ -121,30 +119,35 @@ footer {
     position: fixed;
     bottom: calc((100vh - 50px) * -1);
   }
+}
 
-  @media screen and (max-width: 1000px) {
+//? Queries
+@media screen and (max-width: 1000px) {
+  footer {
+    height: auto;
+    padding-bottom: 50px;
+    padding-top: 50px;
+
     .container {
       max-width: 1000px;
       min-width: 0px;
       justify-content: center;
       justify-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
+      grid-auto-rows: max-content;
+      row-gap: 15px;
+
       .social-media,
       .help-and-support,
       .site-map,
       .documents {
         padding-left: 20%;
       }
-      grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
-
-      grid-auto-rows: max-content;
-      row-gap: 15px;
     }
-    height: auto;
-    padding-bottom: 50px;
-    padding-top: 50px;
   }
 }
 
+//? Animations
 @keyframes animations-Pop-Up {
   0% {
     transition: 0.2s all ease-out;

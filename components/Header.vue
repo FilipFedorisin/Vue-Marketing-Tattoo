@@ -64,13 +64,13 @@ export default {
 }
 </script>
 
+//? Styling
 <style lang="scss" scoped>
 .container {
   z-index: 50;
   position: fixed;
   transform: translate3d(0, 0, 0);
   transition: 0.15s all ease-out;
-
   background-color: black;
   height: 50px;
   width: 100%;
@@ -93,7 +93,6 @@ export default {
       width: 30%;
       transform: translate3d(0, 0, 0);
       transition: 0.1s all ease-out;
-      //margin-top: 10px;
 
       img {
         cursor: pointer;
@@ -114,7 +113,6 @@ export default {
 
       span {
         font-family: 'Montserrat', sans-serif;
-
         line-height: 38px;
         cursor: pointer;
         text-align: center;
@@ -128,7 +126,6 @@ export default {
         animation-duration: 0.5s;
         animation-delay: -0.1s;
         transition: transform 0.3s ease-out;
-        //transform: scale(1.1);
         border-radius: 12px;
         border-style: solid;
         border-width: 1px;
@@ -136,24 +133,11 @@ export default {
       }
     }
   }
-  @media screen and (max-width: 1000px) {
-    #Navbar {
-      min-width: 100%;
-      /*
-      display: grid;
-      justify-content: center;
-      justify-items: start;
-      grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
-      grid-auto-rows: max-content;
-      row-gap: 15px;
-      height: auto;
-      */
-    }
-  }
 }
 .container.container--hidden {
   box-shadow: none;
   transform: translate3d(0, -100%, 0);
+
   #Navbar {
     #Logo {
       transition: 0.3s all ease-out;
@@ -161,6 +145,17 @@ export default {
     }
   }
 }
+
+//? Queries
+@media screen and (max-width: 1000px) {
+  .container {
+    #Navbar {
+      min-width: 100%;
+    }
+  }
+}
+
+//? Animations
 @keyframes animations-Pop-Up {
   50% {
     border-radius: 2px;

@@ -1,0 +1,1 @@
+-> clean up the code and move to setting up pages
